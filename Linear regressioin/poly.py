@@ -33,7 +33,7 @@ x[:, 1:] = (x[:, 1:] - meanx[1:]) / rangex[1:]
 theta = np.ones(n).reshape(n, 1)
 
 # init alpha
-alpha = 0.1
+alpha = 0.5
 
 
 # gradient descent
@@ -44,12 +44,12 @@ def update():
     dJ = (((temp * x).sum(axis=0)) / m).reshape(n, 1)  # dJ/dt
     theta = theta - alpha * dJ  # update
 
-for i in range(10000000):
+for i in range(100000):
     update()
 
 
 # line
-linex = np.linspace(5, 55, 100)
+linex = np.linspace(5, 45, 100)
 liney = theta[0] + theta[1]*(linex-meanx[1])/rangex[1] + theta[2]*(linex*linex-meanx[2])/rangex[2] + theta[3]*(linex*linex*linex-meanx[3])/rangex[3]
 # liney = theta[0] + theta[1]*(linex-meanx[1])/rangex[1]
 line, = ax.plot(linex, liney, "-", alpha=0.5, color="gray")
@@ -58,7 +58,7 @@ line, = ax.plot(linex, liney, "-", alpha=0.5, color="gray")
 
 # figure settings
 plt.ylim(0, 10)
-plt.xlim(0, 60)
+plt.xlim(0, 50)
 plt.xlabel(r'$x$', size=16)
 plt.ylabel(r'$y$', size=16)
 plt.tick_params(labelsize=12)
