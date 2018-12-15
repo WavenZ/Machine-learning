@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-temp = np.loadtxt(open("data3.csv", "rb"), delimiter=",", skiprows=0)
+temp = np.loadtxt(open("data1.csv", "rb"), delimiter=",", skiprows=0)
 
 # get data
 m = temp.shape[0]
